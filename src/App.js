@@ -2,7 +2,7 @@
 
 //line chart
 
-import React, { PureComponent } from "react";
+import React, {useEffect} from "react";
 import {
 LineChart,
 Line,
@@ -13,12 +13,6 @@ Tooltip,
 Legend
 } from "recharts";
 
-class App extends PureComponent {
-static jsfiddleUrl = "https://jsfiddle.net/alidingling/xqjtetw0/";
-componentDidMount() {
-setInterval(() => this.forceUpdate(), 1000);
-}
-render() {
 var data = [
   {BTC:Math.floor(Math.random()*500),
    ETH:Math.floor(Math.random()*500),
@@ -55,7 +49,10 @@ var data = [
 
 
 ];
-return (
+
+const App = () => {
+ 
+  return(
 <div className="App">
 <LineChart
 width={800}
@@ -83,9 +80,9 @@ activeDot={{ r: 8 }}
 <Line type="monotone" dataKey="ETH" stroke="#82ca9d" />
 </LineChart>
 </div>
-);
+  )
 }
-}
+
 export default App;
 
 
